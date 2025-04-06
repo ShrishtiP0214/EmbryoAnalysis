@@ -1,5 +1,12 @@
 # Embryo Image Merging with Deep Learning
 
+## 💁 Collaborators
+
+- Parth Thakre [https://github.com/parth-thakre]
+- Shrishti Pandey [https://github.com/ShrishtiP0214]
+- Shreya Dhanuka [https://github.com/shreyaadhanuka]
+- Shivam Tadas [https://github.com/shivam-tadas]
+
 ## 📁 Project Overview
 
 This project focuses on enhancing cell boundary visualization in embryo images by merging images captured at different focal lengths using deep learning techniques. The project uses a U-Net model as a baseline, with plans to experiment with SwinIR for improved performance.
@@ -8,6 +15,7 @@ This project focuses on enhancing cell boundary visualization in embryo images b
 
 - Merge multiple focal images to generate a clear and enhanced cell boundary image.
 - Utilize deep learning models, starting with U-Net, and explore advanced architectures like SwinIR.
+- Evaluate the effectiveness of merging methods using both qualitative and quantitative metrics.
 
 ---
 
@@ -20,9 +28,13 @@ Embryo/
 │    │── preprocessing_images.ipynb    # Jupyter Notebook for preprocessing and dataset initialization
 │── Scripts/
 │    │── preprocessing.py   # Dataset class and preprocessing pipeline
+│    │── train_unet.py      # Script for training the U-Net model
+│    │── test_unet.py       # Script for testing the trained model
 │── embryo_env/             # Python virtual environment
 │── processed_data/         # Directory for processed output images
 │── preprocessed_data/      # Directory for preprocessed images
+│── trained_models/         # Directory storing trained model weights
+│── results/                # Directory for storing evaluation results and logs
 │── README.md               # Project documentation
 ```
 
@@ -30,85 +42,98 @@ Embryo/
 
 ## 🧠 Methodology
 
-1. **Data Collection:** Paired images at different focal lengths, with corresponding ground truth images.
-2. **Preprocessing:**
-   - Resizing images to 256x256.
-   - Applying augmentations using Albumentations.
-   - Generating valid image pairs for training.
-3. **Modeling:**
-   - Baseline with U-Net.
-   - Future work includes exploring SwinIR.
-4. **Evaluation:**
-   - Visual and quantitative metrics to assess merging quality.
+### 1️⃣ Data Collection
 
----
+- **Paired Images:** Each embryo has multiple images captured at different focal lengths (e.g., F0 to F5).
+- **Ground Truth:** The best-focused image or a manually enhanced image is used as the target output.
 
-<!-- ## ⚙️ Setup
+### 2️⃣ Preprocessing
 
-### 1. Clone Repository
+- **Resizing:** Images are resized to `256x256`.
+- **Normalization:** Pixel intensity values are normalized for consistent model performance.
+- **Augmentations:** Data augmentation using Albumentations (e.g., rotation, flipping, contrast adjustments) to increase dataset diversity.
+- **Dataset Splitting:**
+  - `80%` Training
+  - `10%` Validation
+  - `10%` Testing
 
-```sh
-git clone <repository_url>
-cd Embryo
-```
+### 3️⃣ Model Training
 
-### 2. Setup Python Environment
+- **Baseline Model:** U-Net with 6 input channels (one for each focal plane) and 1 output channel (fused image).
+- **Loss Function:** Mean Squared Error (MSE) for pixel-wise similarity.
+- **Optimizer:** Adam with learning rate scheduling.
+- **Hardware:** Training runs on GPU (if available) for better performance.
+- **Checkpointing:** The best-performing model is saved to `trained_models/embryo_unet.pth`.
 
-```sh
-python -m venv embryo_env
-source embryo_env/bin/activate
-pip install -r requirements.txt
-```
+### 4️⃣ Testing & Inference
 
-### 3. Dataset Preparation
+- Users can provide `6` images of an embryo, and the model will output a fused image.
+- Run `test_unet.py` to evaluate a single embryo:
 
-- Place the dataset in the `Dataset/` directory with the following structure:
+  ```sh
+  python test_unet.py --image_paths path/to/img1 path/to/img2 path/to/img3 ...
+  ```
 
-```
-Dataset/
-│── embryo_dataset_F0/
-│── embryo_dataset_F1/
-│── embryo_dataset_F2/
-│── embryo_dataset_F3/
-│── embryo_dataset_F4/
-│── embryo_dataset_F5/
-│── processed_data/
-```
+- Output is saved to `results/fused_output.jpg`.
 
-### 4. Run Preprocessing
+### 5️⃣ Evaluation
 
-```sh
-jupyter notebook Notebooks/preprocessing_images.ipynb
-```
+- **Quantitative Metrics:** PSNR, SSIM, and MAE between fused output and ground truth.
+- **Qualitative Analysis:** Visual comparison between fused and ground truth images.
+- **Error Logging:** Any truncated or corrupted images are logged in `results/error_log.txt`.
 
 ---
 
 ## 🚀 Training the Model
 
-To train the U-Net model, run:
+To train the U-Net model from scratch, run:
 
 ```sh
-python train_unet.py
+python unet.py
 ```
+
+---
+
+## 🧪 Testing the Model
+
+To test the model with a given set of 6 images:
+
+```sh
+python test_unet.py --image_paths /path/to/F0.jpg /path/to/F1.jpg /path/to/F2.jpg /path/to/F3.jpg /path/to/F4.jpg /path/to/F5.jpg
+```
+
+This will generate and save the fused image as `results/fused_output.jpg`.
 
 ---
 
 ## 📊 Results
 
-- Evaluation metrics and qualitative results will be documented here.
+### **Evaluation Metrics**
 
---- -->
+- **PSNR (Peak Signal-to-Noise Ratio)**: Measures image reconstruction quality.
+- **SSIM (Structural Similarity Index Measure)**: Evaluates structural differences.
+- **MAE (Mean Absolute Error)**: Computes the average pixel-wise difference.
+
+Results are stored in `results/evaluation_metrics.txt`.
+
+---
 
 ## 🛠 Future Work
 
-- Experiment with SwinIR.
-- Implement additional preprocessing and augmentation techniques.
+- **Experiment with SwinIR** for improved high-frequency detail retention.
+- **Refine preprocessing techniques** to handle truncated images more effectively.
+- **Hyperparameter tuning** to improve training stability and convergence.
+- **Explore additional loss functions** for better alignment with human perception.
 
 ---
 
 ## 🤝 Contribution
 
-Feel free to submit issues or pull requests to contribute to this project!
+Feel free to submit issues or pull requests to contribute to this project! Contributions could include:
+
+- Implementing new model architectures.
+- Enhancing the dataset with more diverse embryo images.
+- Improving preprocessing and augmentation techniques.
 
 ---
 
