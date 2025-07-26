@@ -1,0 +1,67 @@
+Found 704 embryo IDs: ['AA83-7', 'AAL839-6', 'AB028-6', 'AB91-1', 'AC264-1'] ...
+Using device: cuda
+Starting training...
+Epoch [1/100] Train Loss: 0.0877, Val Loss: 0.0464
+  [*] Model saved at epoch 1
+Epoch [2/100] Train Loss: 0.0450, Val Loss: 0.0330
+  [*] Model saved at epoch 2
+Epoch [3/100] Train Loss: 0.0337, Val Loss: 0.0241
+  [*] Model saved at epoch 3
+Epoch [4/100] Train Loss: 0.0287, Val Loss: 0.0348
+Epoch [5/100] Train Loss: 0.0274, Val Loss: 0.0287
+Epoch [6/100] Train Loss: 0.0296, Val Loss: 0.0233
+  [*] Model saved at epoch 6
+Epoch [7/100] Train Loss: 0.0293, Val Loss: 0.0317
+Epoch [8/100] Train Loss: 0.0305, Val Loss: 0.0221
+  [*] Model saved at epoch 8
+Epoch [9/100] Train Loss: 0.0247, Val Loss: 0.0182
+  [*] Model saved at epoch 9
+Epoch [10/100] Train Loss: 0.0290, Val Loss: 0.0216
+Epoch [11/100] Train Loss: 0.0298, Val Loss: 0.0232
+Epoch [12/100] Train Loss: 0.0276, Val Loss: 0.0177
+  [*] Model saved at epoch 12
+Epoch [13/100] Train Loss: 0.0324, Val Loss: 0.0393
+Epoch [14/100] Train Loss: 0.0254, Val Loss: 0.0186
+Epoch [15/100] Train Loss: 0.0235, Val Loss: 0.0150
+  [*] Model saved at epoch 15
+Epoch [16/100] Train Loss: 0.0323, Val Loss: 0.0259
+Epoch [17/100] Train Loss: 0.0234, Val Loss: 0.0190
+Epoch [18/100] Train Loss: 0.0241, Val Loss: 0.0162
+Epoch [19/100] Train Loss: 0.0292, Val Loss: 0.0219
+Epoch [20/100] Train Loss: 0.0271, Val Loss: 0.0194
+Epoch [21/100] Train Loss: 0.0279, Val Loss: 0.0242
+Epoch [22/100] Train Loss: 0.0203, Val Loss: 0.0157
+Epoch [23/100] Train Loss: 0.0216, Val Loss: 0.0131
+  [*] Model saved at epoch 23
+Epoch [24/100] Train Loss: 0.0189, Val Loss: 0.0142
+Epoch [25/100] Train Loss: 0.0195, Val Loss: 0.0149
+Epoch [26/100] Train Loss: 0.0204, Val Loss: 0.0134
+Epoch [27/100] Train Loss: 0.0203, Val Loss: 0.0133
+Epoch [28/100] Train Loss: 0.0191, Val Loss: 0.0131
+  [*] Model saved at epoch 28
+Epoch [29/100] Train Loss: 0.0207, Val Loss: 0.0143
+Epoch [30/100] Train Loss: 0.0200, Val Loss: 0.0132
+Epoch [31/100] Train Loss: 0.0202, Val Loss: 0.0134
+Epoch [32/100] Train Loss: 0.0205, Val Loss: 0.0138
+Epoch [33/100] Train Loss: 0.0178, Val Loss: 0.0133
+Epoch [34/100] Train Loss: 0.0191, Val Loss: 0.0181
+Epoch [35/100] Train Loss: 0.0182, Val Loss: 0.0133
+Epoch [36/100] Train Loss: 0.0178, Val Loss: 0.0131
+Epoch [37/100] Train Loss: 0.0188, Val Loss: 0.0142
+Epoch [38/100] Train Loss: 0.0187, Val Loss: 0.0129
+  [*] Model saved at epoch 38
+Epoch [39/100] Train Loss: 0.0178, Val Loss: 0.0127
+  [*] Model saved at epoch 39
+Epoch [40/100] Train Loss: 0.0194, Val Loss: 0.0140
+Epoch [41/100] Train Loss: 0.0188, Val Loss: 0.0132
+Epoch [42/100] Train Loss: 0.0193, Val Loss: 0.0134
+Epoch [43/100] Train Loss: 0.0180, Val Loss: 0.0129
+Epoch [44/100] Train Loss: 0.0179, Val Loss: 0.0138
+Epoch [45/100] Train Loss: 0.0189, Val Loss: 0.0135
+Epoch [46/100] Train Loss: 0.0175, Val Loss: 0.0130
+Epoch [47/100] Train Loss: 0.0195, Val Loss: 0.0129
+Epoch [48/100] Train Loss: 0.0181, Val Loss: 0.0127
+Epoch [49/100] Train Loss: 0.0184, Val Loss: 0.0132
+Early stopping due to no improvement in validation loss.
+Training complete. Best model saved as 'embryo_unet_fusion.pth'.
+Loaded trained model weights for testing.

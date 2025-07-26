@@ -116,14 +116,6 @@ This will generate and save the fused image as `results/fused_output.jpg`.
 
 Results are stored in `results/evaluation_metrics.txt`.
 
----
-
-## 🛠 Future Work
-
-- **Experiment with SwinIR** for improved high-frequency detail retention.
-- **Refine preprocessing techniques** to handle truncated images more effectively.
-- **Hyperparameter tuning** to improve training stability and convergence.
-- **Explore additional loss functions** for better alignment with human perception.
 
 ---
 
